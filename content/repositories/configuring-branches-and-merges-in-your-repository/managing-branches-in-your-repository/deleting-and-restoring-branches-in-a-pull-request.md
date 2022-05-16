@@ -19,7 +19,8 @@ shortTitle: Delete & restore branches
 ---
 ## Deleting a branch used for a pull request
 
-You can delete a branch that is associated with a pull request if the pull request has been merged or closed and there are no other open pull requests referencing the branch. For information on closing branches that are not associated with pull requests, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
+You can delete a branch that is associated with a pull request if the pull request has been merged or closed and there are no other open pull requests referencing 
+the branch. For information on closing branches that are not associated with pull requests, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
