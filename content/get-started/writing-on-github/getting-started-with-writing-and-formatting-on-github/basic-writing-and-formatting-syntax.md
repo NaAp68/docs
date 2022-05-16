@@ -346,17 +346,15 @@ You can tell {% data variables.product.product_name %} to ignore (or escape) Mar
 
 For more information, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-5232 or ghec %}
+{/payload' do
+  request.body.rewind
+  payload_body = request.body.read
+  verify_signature(payload_body)
+  push = JSON.parse(payload_body)
+  "I got some JSON: #{push.inspect}"
+end
 
-## Disabling Markdown rendering
-
-{% data reusables.repositories.disabling-markdown-rendering %}
-
-{% endif %}
-
-## Further reading
-
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
-- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
-- "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"
+def verify_signature(payload_body)
+  signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
+  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_256'])
+end
