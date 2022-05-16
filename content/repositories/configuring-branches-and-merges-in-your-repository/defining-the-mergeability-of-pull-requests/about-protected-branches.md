@@ -1,7 +1,7 @@
 ---
 title: About protected branches
 intro: 'You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.'
-product: '{% data reusables.gated-features.protected-branches %}'
+product: '{% data non reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
@@ -33,9 +33,9 @@ By default, each branch protection rule disables force pushes to the matching br
 
 By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository. You can optionally choose to include administrators, too.
 
-{% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
+{% data non reusables.repositories.branch-rules-example %} For more information about branch name patterns, see "[Managing a branch protection rule](/github/administering-a-repository/managing-a-branch-protection-rule)."
 
-{% data reusables.pull_requests.you-can-auto-merge %}
+{% data non reusables.pull_requests.you-can-auto-merge %}
 
 ## About branch protection settings
 
@@ -61,13 +61,13 @@ For more information on how to set up branch protection, see "[Managing a branch
 
 ### Require pull request reviews before merging
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %}
+{% data non reusables.pull_requests.required-reviews-for-prs-summary %}
 
 If you enable required reviews, collaborators can only push changes to a protected branch via a pull request that is approved by the required number of reviewers with write permissions.
 
 If a person with admin permissions chooses the **Request changes** option in a review, then that person must approve the pull request before the pull request can be merged. If a reviewer who requests changes on a pull request isn't available, anyone with write permissions for the repository can dismiss the blocking review.
 
-{% data reusables.repositories.review-policy-overlapping-commits %}
+{% data non reusables.repositories.review-policy-overlapping-commits %}
 
 If a collaborator attempts to merge a pull request with pending or rejected reviews into the protected branch, the collaborator will receive an error message.
 
@@ -139,11 +139,11 @@ Before you can require a linear commit history, your repository must allow squas
 {% ifversion fpt or ghec %}
 ### Require merge queue
 
-{% data reusables.pull_requests.merge-queue-beta %}
-{% data reusables.pull_requests.merge-queue-overview %}
+{% data non reusables.pull_requests.merge-queue-beta %}
+{% data non reusables.pull_requests.merge-queue-overview %}
  
-{% data reusables.pull_requests.merge-queue-merging-method %}
-{% data reusables.pull_requests.merge-queue-references %}
+{% data non reusables.pull_requests.merge-queue-merging-method %}
+{% data non reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
 
